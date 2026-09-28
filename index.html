@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة التأشيرات - وزارة الخارجية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        body {
+            background-color: #7a6e93;
+            background: linear-gradient(180deg, #5b4d75 0%, #7a6e93 40%, #8a7c9f 100%);
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding-bottom: 90px;
+        }
+
+        /* Top Header */
+        .top-header {
+            background-color: #ffffff;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .mofa-logo img {
+            height: 75px;
+            max-width: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .menu-icon {
+            font-size: 26px;
+            color: #4a3e63;
+            cursor: pointer;
+        }
+
+        .header-title-bar {
+            background-color: #ffffff;
+            text-align: center;
+            padding: 0 0 15px 0;
+            font-weight: 800;
+            font-size: 20px;
+            color: #3c2e56;
+        }
+
+        /* Pattern Band */
+        .pattern-band {
+            height: 28px;
+            background-color: #483961;
+            background-image: repeating-linear-gradient(45deg, #372a4b 0, #372a4b 10px, #483961 10px, #483961 20px);
+            border-top: 2px solid #a89bbd;
+            border-bottom: 2px solid #a89bbd;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pattern-band::after {
+            content: "❖ ❖ ❖ ❖ ❖ ❖ ❖ ❖ ❖ ❖ ❖ ❖ ❖ ❖ ❖ ❖ ❖ ❖ ❖ ❖ ❖ ❖ ❖ ❖ ❖";
+            color: #c7b3dd;
+            font-size: 11px;
+            letter-spacing: 6px;
+            opacity: 0.8;
+        }
+
+        .hero-section {
+            padding: 25px 15px;
+            max-width: 500px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* KSA VISA Promo Card */
+        .ksavisa-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 22px 15px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+            margin-bottom: 25px;
+        }
+
+        .ksavisa-card .logo-badge {
+            font-size: 24px;
+            font-weight: 900;
+            color: #312147;
+            letter-spacing: 1px;
+            line-height: 1;
+        }
+
+        .ksavisa-card .logo-sub {
+            font-size: 10px;
+            color: #7b6b94;
+            display: block;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .ksavisa-card p {
+            color: #55486c;
+            font-size: 13px;
+            font-weight: 600;
+            line-height: 1.5;
+            margin-bottom: 14px;
+        }
+
+        .btn-trial {
+            background-color: #372a4c;
+            color: #fff;
+            border: none;
+            padding: 8px 30px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .section-headline {
+            text-align: center;
+            color: #ffffff;
+            font-size: 26px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.15);
+        }
+
+        .section-subline {
+            text-align: center;
+            color: #e3dded;
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 25px;
+        }
+
+        /* Search Card */
+        .search-box {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 25px 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: 700;
+            color: #3b2c54;
+            font-size: 14px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid #d1c7e0;
+            border-radius: 10px;
+            font-size: 14px;
+            text-align: right;
+            direction: rtl;
+            background-color: #fbfafd;
+            color: #2b1d42;
+            outline: none;
+        }
+
+        .form-group input:focus {
+            border-color: #5b4d75;
+            background-color: #fff;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background-color: #372a4c;
+            color: #ffffff;
+            border: none;
+            padding: 13px;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 12px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(55, 42, 76, 0.3);
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .btn-submit:active {
+            transform: scale(0.98);
+        }
+
+        /* Result Area */
+        #resultContainer {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .result-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .print-btn-bar {
+            display: flex;
+            justify-content: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .btn-print {
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .visa-img-container {
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .visa-img-container img {
+            width: 100%;
+            display: block;
+            height: auto;
+        }
+
+        .error-box {
+            background-color: #fbeae8;
+            color: #a92a2a;
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 14px;
+            border: 1px solid #f3c2bc;
+        }
+
+        /* Cookies Bar */
+        .cookies-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #cfcad8;
+            padding: 15px 20px;
+            text-align: center;
+            box-shadow: 0 -4px 15px rgba(0,0,0,0.1);
+            z-index: 9999;
+        }
+
+        .cookies-bar p {
+            font-size: 12px;
+            color: #332746;
+            font-weight: 600;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .btn-agree {
+            background-color: #372a4c;
+            color: #ffffff;
+            border: none;
+            padding: 8px 35px;
+            border-radius: 18px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        /* تحسينات وإعدادات الطباعة لورقة واحدة فقط بدون مسارات ورؤوس صفحات */
+        @media print {
+            @page {
+                size: A4 portrait;
+                margin: 0; /* إلغاء الهوامش لتجنب ظهور صفحات إضافية فارغة */
+            }
+
+            html, body {
+                background: #ffffff !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                height: 100% !important;
+                overflow: hidden !important;
+            }
+
+            .top-header, .header-title-bar, .pattern-band, .ksavisa-card, 
+            .section-headline, .section-subline, .search-box, .cookies-bar, .print-btn-bar {
+                display: none !important;
+            }
+
+            .hero-section {
+                max-width: 100% !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                width: 100% !important;
+            }
+
+            .result-card {
+                box-shadow: none !important;
+                padding: 0 !important;
+                border: none !important;
+                margin: 0 !important;
+            }
+
+            .visa-img-container {
+                width: 100vw !important;
+                height: 100vh !important;
+                display: flex !important;
+                align-items: flex-start !important;
+                justify-content: center !important;
+            }
+
+            .visa-img-container img {
+                width: 100% !important;
+                max-height: 100vh !important;
+                object-fit: contain !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Bar -->
+    <div class="top-header">
+        <div class="mofa-logo">
+            <img src="logo.png" alt="" onerror="this.onerror=null; this.src='logo.png.png';">
+        </div>
+        <div class="menu-icon">☰</div>
+    </div>
+
+    <div class="header-title-bar">
+        منصة التأشيرات
+    </div>
+
+    <div class="pattern-band"></div>
+
+    <div class="hero-section">
+        
+        <div class="ksavisa-card">
+            <div class="logo-badge">KSA<br>VISA</div>
+            <span class="logo-sub">التأشيرة السعودية</span>
+            <p>تم إطلاق النسخة التجريبية لـ<br>"تأشيرة السعودية | KSA VISA"</p>
+            <button class="btn-trial">جرب المنصة</button>
+        </div>
+
+        <h1 class="section-headline">منصة التأشيرات</h1>
+        <p class="section-subline">اختر الخدمة التي تناسبك</p>
+
+        <div class="search-box">
+            <form id="searchForm" onsubmit="searchVisa(event)">
+                <div class="form-group">
+                    <label for="visaNo">رقم التأشيرة (Visa No):</label>
+                    <input type="text" id="visaNo" placeholder="أدخل رقم التأشيرة" required>
+                </div>
+                <div class="form-group">
+                    <label for="appNo">رقم الطلب (Application No):</label>
+                    <input type="text" id="appNo" placeholder="أدخل رقم الطلب" required>
+                </div>
+                <button type="submit" class="btn-submit">استعلام</button>
+            </form>
+        </div>
+
+        <!-- Result Box -->
+        <div id="resultContainer"></div>
+
+    </div>
+
+    <!-- Cookies Bar -->
+    <div class="cookies-bar" id="cookiesBar">
+        <p>من خلال استخدامك لموقعنا توافق على جمع ومعالجة بياناتك الشخصية المتعلقة بالخدمات المقدمة من وزارة الخارجية - المملكة العربية السعودية. نحن نستخدم خاصية "ملفات الارتباط" من أجل إيصال أفضل تجربة على موقعنا.</p>
+        <button class="btn-agree" onclick="document.getElementById('cookiesBar').style.display='none'">أوافق</button>
+    </div>
+
+    <script>
+        const visaData = [
+            { visaNo: "6170527211", appNo: "E822019252", img: "1.jpg" },
+            { visaNo: "6170527346", appNo: "E822019942", img: "2.jpg" },
+            { visaNo: "6170527853", appNo: "E822019953", img: "3.jpg" },
+            { visaNo: "6170527943", appNo: "E822019348", img: "4.jpg" },
+            { visaNo: "6170527831", appNo: "E822019939", img: "5.jpg" },
+            { visaNo: "6170527937", appNo: "E822019763", img: "6.jpg" },
+            { visaNo: "6170527824", appNo: "E822019062", img: "7.jpg" },
+            { visaNo: "6170527042", appNo: "E822019045", img: "8.jpg" },
+            { visaNo: "6170527481", appNo: "E822019842", img: "9.jpg" },
+            { visaNo: "6170527387", appNo: "E822019164", img: "10.jpg" },
+            { visaNo: "6170527381", appNo: "E822019320", img: "11.jpg" },
+            { visaNo: "6170527326", appNo: "E822019492", img: "12.jpg" },
+            { visaNo: "6170527341", appNo: "E822019103", img: "13.jpg" },
+            { visaNo: "6170527371", appNo: "E822019196", img: "14.jpg" },
+            { visaNo: "6170527031", appNo: "E822019097", img: "15.jpg" },
+            { visaNo: "6170527702", appNo: "E822019303", img: "16.jpg" },
+            { visaNo: "6170527171", appNo: "E822019937", img: "17.jpg" },
+            { visaNo: "6170527325", appNo: "E822019194", img: "18.jpg" },
+            { visaNo: "6170527799", appNo: "E822019031", img: "19.jpg" },
+            { visaNo: "6170527976", appNo: "E822019313", img: "20.jpg" },
+            { visaNo: "6170527827", appNo: "E822019791", img: "21.jpg" },
+            { visaNo: "6170527247", appNo: "E822019243", img: "22.jpg" },
+            { visaNo: "6170527101", appNo: "E822019431", img: "23.jpg" },
+            { visaNo: "6170527704", appNo: "E822019272", img: "24.jpg" },
+            { visaNo: "6170527984", appNo: "E822019210", img: "25.jpg" },
+            { visaNo: "6170527777", appNo: "E822019010", img: "26.jpg" },
+            { visaNo: "6170527919", appNo: "E822019151", img: "27.jpg" },
+            { visaNo: "6170527424", appNo: "E822019007", img: "28.jpg" },
+            { visaNo: "6170527761", appNo: "E822019907", img: "29.jpg" },
+            { visaNo: "6170527979", appNo: "E822019909", img: "30.jpg" },
+            { visaNo: "6170527192", appNo: "E822019734", img: "31.jpg" },
+            { visaNo: "6170527120", appNo: "E822019394", img: "32.jpg" }
+        ];
+
+        function searchVisa(e) {
+            e.preventDefault();
+            
+            const visaNoInput = document.getElementById('visaNo').value.trim();
+            const appNoInput = document.getElementById('appNo').value.trim();
+            const resultContainer = document.getElementById('resultContainer');
+
+            const match = visaData.find(item => 
+                item.visaNo.toLowerCase() === visaNoInput.toLowerCase() && 
+                item.appNo.toLowerCase() === appNoInput.toLowerCase()
+            );
+
+            resultContainer.style.display = 'block';
+
+            if (match) {
+                resultContainer.innerHTML = `
+                    <div class="result-card">
+                        <div class="print-btn-bar">
+                            <button class="btn-print" onclick="window.print()">
+                                طباعة التأشيرة / حفظ PDF
+                            </button>
+                        </div>
+                        <div class="visa-img-container">
+                            <img src="${match.img}" alt="">
+                        </div>
+                    </div>
+                `;
+            } else {
+                resultContainer.innerHTML = `
+                    <div class="error-box">
+                        عذراً، لم يتم العثور على بيانات تأشيرة مطابقة للبيانات المدخلة. يُرجى التأكد من صحة رقم التأشيرة ورقم الطلب.
+                    </div>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>
